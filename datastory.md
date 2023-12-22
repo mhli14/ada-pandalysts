@@ -21,8 +21,6 @@ To answer these questions, let us take you a journey of languages in movies, in 
 
 The CMU Movie Corpus Dataset, a corpus of ~80'000 movies released between 1888 and 2016 with every detail pertaining to each movie, is our main dish. We seasoned this dish with a generous amount of Box Office Mojo Worldwide Yearly Box Office Dataset for additional **box office revenue data** and The Movies Dataset for an additional taste of **movie budget**. This body of data contains information about the length, the budget, the total revenue, the affiliated genres, the year of release and the list of languages of the movies present, many more pieces of information relating to them. 
 
-[ Insert Relevant Distributions Describing the Dataset ]
-
 Using this data, we will answer 4 key questions:
 
 1. Is there a correlation between **language variety** in a movie and its **box office revenue**? 
