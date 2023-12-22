@@ -88,7 +88,7 @@ To do so we need to compare it with the language count and revenue variables
 | :-------------: |:-------------:|
 | 0.724 > 0| 1.907e-279 << 0.05|
 
-![](./pictures/q1_Movie_Budget_Size_VS_Number_of_Languages.png)
+![](./q1_Movie_Budget_Size_VS_Number_of_Languages.png)
 
 | Pearson's R   | P-value         | 
 | :-------------: |:-------------:|
@@ -181,13 +181,13 @@ Here, we will explore the trends of the non-native/non-predominant languages in 
 
 Let's take a look at the top 10 most common languages in American Movies, that are not English:
 
-![](./pictures/q3_10_Most_Common_Languages_Found_In_American_Movies.png)
+![](./q3_10_Most_Common_Languages_Found_In_American_Movies.png)
 
 Ignoring the silent films, we see that the most prevalent language after English is Spanish. Given the presence of a significant Hispanic population in the US demographics, the prevalence of Spanish here is very much expected. The immediate followers of French, German and Italian are European languages with which the US had contacts with for 200 years, and had significant levels of immigration from over the years. The others are also historically or currently relevant in American cultural sphere.
 
-![](./pictures/q3_Ratio_of_Movies_in_Different_Languages_in_The_American_Movie_Industry_5-Year_Intervals.png)
+![](./q3_Ratio_of_Movies_in_Different_Languages_in_The_American_Movie_Industry_5-Year_Intervals.png)
 
-![](./pictures/q3_Ratio_of_Movies_Presenting_Spanish_in_The_American_Movie_Industry_5-Year_Intervals.png)
+![](./q3_Ratio_of_Movies_Presenting_Spanish_in_The_American_Movie_Industry_5-Year_Intervals.png)
 
 We calculated the ratio of presence of each language in American movies and the evolution of this presence across time (in 5 year intervals), between 1940 and 2015. The dominance of Spanish over the other languages is a relatively recent phenomenon, starting only around 1980-1985. Yet, it is a mostly clear path afterwards. 
 
@@ -199,15 +199,15 @@ The evolution of the presence of Spanish follows the trends in the Hispanic demo
 
 Looking at the overall language distribution of Indian movies excluding Hindi, we see both expected and unexpected results:
 
-![](./pictures/q3_10_Most_Common_Languages_Found_In_Indian_Movies_Besides_Hindi.png)
+![](./q3_10_Most_Common_Languages_Found_In_Indian_Movies_Besides_Hindi.png)
 
 The three most prominent languages; Tamil, Malayalam and Telugu are all Southern Indian languages. These communities, while only constituting ~23% of the total Indian population, have their own movie industries (such as the Telugu Tollywood and the Tamil Kollywood) and thus are not surprisingly high up in the list. As of 2022, the combined revenue of Southern Indian film industries has surpassed that of the Mumbai-based Hindi film industry (Bollywood).
 
 English is the fourth, as expected of it being the second official language and a lingua franca in the country, not to mention the country's colonial past. The other runner-ups of Bengali, Kannada, Urdu, Punjabi, Oriya and Marathi are all either languages present in India or its neighbours. 
 
-![](./pictures/q3_Ratio_of_Movies_in_Different_Languages_in_The_Indian_Movie_Industry_5-Year_Intervals.png)
+![](./q3_Ratio_of_Movies_in_Different_Languages_in_The_Indian_Movie_Industry_5-Year_Intervals.png)
 
-![](./pictures/q3_Ratio_of_Movies_Presenting_Tamil_in_The_Indian_Movie_Industry_5-Year_Intervals.png)
+![](./q3_Ratio_of_Movies_Presenting_Tamil_in_The_Indian_Movie_Industry_5-Year_Intervals.png)
 
 The dominance of the three Southern Indian languages is uncontested since 1960s, with the others having approximately half the ratio compared to them. However, there are severe fluctuations among them. The dip of the Telugu and Tamil language ratio between 1960 and 1980 is contrasted by a huge peak in Malayalam in the same period. 
 
@@ -219,15 +219,15 @@ A close observation of the Tamil language shows a severe dip, especially in the 
 
 The distribution of non-English languages in British movies yields a fundementally different result than that of the US or India:
 
-![](./pictures/q3_10_Most_Common_Languages_Found_In_UK_Movies_Besides_English.png)
+![](./q3_10_Most_Common_Languages_Found_In_UK_Movies_Besides_English.png)
 
 The dominance of European languages such as French, German, Italian and Spanish is expected, however this implies that the language trends in the UK follow cultural trends, not demographic. The second biggest demographic group in the UK is the British Asians, mostly consisted of Indians and other South/Southeastern Asians. 
 
 Yet this fact is only visible in the presence of the Hindi language (and to a degree Mandarin), but only as the 9th. This implies that in British movies, cultural ties and history might have a bigger impact than local demographics. 
 
-![](./pictures/q3_Ratio_of_Movies_in_Different_Languages_in_The_British_Movie_Industry_5-Year_Intervals.png)
+![](./q3_Ratio_of_Movies_in_Different_Languages_in_The_British_Movie_Industry_5-Year_Intervals.png)
 
-![](./pictures/q3_Ratio_of_Movies_Presenting_French_in_The_British_Movie_Industry_5-Year_Intervals.png)
+![](./q3_Ratio_of_Movies_Presenting_French_in_The_British_Movie_Industry_5-Year_Intervals.png)
 
 The pre-eminent position of French in the British movies is concretely established after 1970-1975, where it overtakes German for good. European languages as a whole follow a similar trend to French in their presence, with a small peak in 1980-1985 and a relatively bigger peak in 1995-2005. 
 
@@ -312,7 +312,7 @@ The matched data speaks for itself:
 **French**
 | T-test value  | P-value         | 
 | :-------------: |:-------------:|
-| 1.445 |  0.150 **>** 0.05|
+| 1.445 |  0.150 > 0.05|
 
 
 **Hindi**
