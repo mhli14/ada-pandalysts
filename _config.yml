@@ -21,7 +21,7 @@ author: Pandalysts
 
 navbar-links:
   Data Story: "datastory"
-  About Us: "aboutme"
+  # About Us: "aboutme"
   # Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
   #  - Learn markdown: "https://www.markdowntutorial.com/"
