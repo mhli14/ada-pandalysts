@@ -111,7 +111,59 @@ We do get a large positive coefficient in the linear regression with a significa
 
 ## The use of which languages are associated with higher box office revenues?
 
-Q2 text
+Maybe having multiple languages makes money indeed, but *which one* hits the jackpot?
+
+To understand that, we will proceed in a similar fashion to our prior analysis.
+
+### Sneak Peak: Speak in Gold (a.k.a USD)
+
+[insert Total Revenue by Language Plot]
+
+After enriching the revenue data with the Mojo dataset, we observe that the English language by far makes the highest cumulative value, surpassing its competitors combined: **$127,721,656,605** of revenue in total. Given the fact that the English language dominates the dataset with presence in 1322 movies (compare to Spanish in second place with 99), this is not surprising.
+
+[insert Average Revenue per Language Plot]
+
+When we account for that presence and instead opt to compare the average revenue earned per language, the results are drastically different.
+
+We see that extinct or endangered languages, or the languages whose countries of origins aren't major movie producers now predimonate. Ye Old English, Assyrian (modern Syriac - Aramaic) and Amharic (one of the prominent languages of Ethiopia) are the top three runners, while Pawnee (A Native Aemrican language) and Nepali are in hot pursuit.
+
+A possible explanation is that these languages could feature rarely, but in big budget movies. For example: the Old English language is present in movies Beowulf and The Lord of the Rings: The Two Towers.
+
+### Testing the Gold
+
+We performed a linear regression with a one-hot encoding of each language in the dataset. The results are interesting:
+
+| R-squared   | P-value         | 
+| :-------------: |:-------------:|
+| 0.069 | 0.0002 << 0.05|
+
+Whereas we get a statistically significant result, the R squared being close to zero, the model doesn't necessarily well explain the variance in the data. 
+
+Many movies had a non-significant association with the revenue, except for the following ones ordered in decreasing significance: 
+
+| Language   | P-value         | 
+| :-------------: |:-------------:|
+| Old English | 0.000096|
+| Croatian | 0.000503|
+| Portuguese | 0.002177| 
+| English | 0.003856| 
+| Tibetan | 0.013901| 
+| American English | 0.039020| 
+
+We want the go further and test the 3 languages with the lowest p-values individually with matching: Old English, Croation and Portuguese.
+
+
+### When the Gold Breaks Against the Stone
+
+We performed a matching of the movie samples based on budget, genre and runtime. We imposed that the treatment condition is the presence of the language being studied. After implementing an OLS Linear Regression, we get the following:
+
+| Language   | P-value         | 
+| :-------------: |:-------------:|
+| Old English | 0.377|
+| Croatian | 0.938|
+| Portuguese | 0.404| 
+
+With the new p-values of our top three strongest candidates now above the significance threshold, we conclude that we cannot reject the Null Hypothesis. The data at hand **doesn't show any significant correlation between the presence of any given language and the box office revenue concretely**. 
 
 ## Which languages a country's movies have other the native one?
 
