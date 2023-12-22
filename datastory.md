@@ -109,7 +109,7 @@ After the matching, we ran an OLS Linear Regression test, by separating the movi
 
 We do get a large positive coefficient in the linear regression with a significant p-value, confirming that **a positive linear relationship between language count and box office revenue exists**. However, our Standard Error is relatively high, and therefore it would be pertinent for a future study to perform this test again with a more comprehensive dataset to further elucidate this relationship.
 
-## The use of which languages are associated with higher box office revenues?
+## 2. The Use of Which Languages are Associated with a Higher Box Office Revenue?
 
 Maybe having multiple languages makes money indeed, but *which one* hits the jackpot?
 
@@ -167,7 +167,7 @@ We performed a matching of the movie samples based on budget, genre and runtime.
 
 With the new p-values of our top three strongest candidates now above the significance threshold, we conclude that we cannot reject the Null Hypothesis. The data at hand **doesn't show any significant correlation between the presence of any given language and the box office revenue concretely**. 
 
-## Which languages a country's movies have other the native one?
+## 3. Which Languages a Country's Movies Have Other the Native One?
 
 Which other monsters lurk in the Loch Ness other than the one we know about? 
 
@@ -193,7 +193,7 @@ Looking at the trend of the ratio of Spanish presence in American movies indepen
 
 The evolution of the presence of Spanish follows the trends in the Hispanic demographic growth in the country. 1980-1990s seeing an increase in the Hispanic voting block, also corresponds to the start of the more dominant position of Spanish in American movies. 
 
-### The Languages of an Ancient Subcontinent
+### The Languages of the Ancient Subcontinent
 
 Looking at the overall language distribution of Indian movies excluding Hindi, we see both expected and unexpected results:
 
@@ -231,4 +231,116 @@ The pre-eminent position of French in the British movies is concretely establish
 
 The presence of French in British movies shows a significant rise over the years, yet is challenged after 2005. French falls to a similar baseline observed between 1970 and 1995, while German and Spanish are still showing increasing trends. Italian is in significant decline after 2005. From the slow but steady growth of Japanese, Hindi and Arabic presence, we could say that the demographic impact of the British Asian minority has started to show itself in the recent times. 
 
-## Which languages are more present in a specific genre?
+## 4. Which languages are more present in a specific genre?
+
+Is a language inherently associated with a genre, and vice versa? Can a romance movie exist in a language other than French, or can the Samurai speak a language other than Japanese?
+
+We have created strong associations between certain cultures, languages and concepts. Might these be reflected in the presence of certain languages in a given genre? Or even better, can we ascertain new associations for genres without established stereotypes(oh dear)?
+
+In this section, we will first observe the language distribution of each genre, then perform a t-test on a sample matched for budget, per genre group (treatment condition being the presence of the langauges of interest). Depending on data availability, we are also occasionaly removing English movies to compare the secondary languages more closely.
+
+[insert language distribution by movie count plot]
+
+[insert genre distribution plot]
+
+### Martial Arts: Does Karate Speak Chinese?
+
+[Insert Martial Arts Film Count by Language Plot]
+
+Yes it does (Cantonese & Mandarin). In fact the sum of all classifications of Mandarin and Cantonese would double the count of English. Japanese and Korean are also represented immedately behind the Chinese dialects. English, as a singular language tag, remains on top. This does confirm the usual affiliation of East Asian languages and culture with Martial Arts movies. 
+
+Yet this observation is not enough by itself. By conducting a t-test on the data, we see that the presence of the Chinese dialects of Cantonese, Mandarin, Japanese and Korean (all grouped jointly) is indeed significant:
+
+| T-test value  | P-value         | 
+| :-------------: |:-------------:|
+| 2.977 | 0.0034 << 0.05|
+
+This shows us concretely that **the East Asian languages are indeed significantly associated with the Martial Arts genre**.
+
+### Samurai: Does the Katana Speak Japanese?
+
+[Insert Samurai Film Count by Language Plot]
+
+It sure does. In fact it is the only genre in this study where another language overtakes English with a significant margin. The importance of the "Japanese Knights" in Japan's history and cinematography is undisputed. 
+
+While a matching on budget was not possible due to missing data, the t-test result still yields:
+
+| T-test value  | P-value         | 
+| :-------------: |:-------------:|
+| 32.270 |  6.602e-227 << 0.05|
+
+Indeed, **the Japanese Language is significantly associated with the Samurai genre**.
+
+### War: Does the Panzer Speak German?
+
+[Insert War Film Count by Language Plot]
+
+Whereas we see an overwhelming dominance of the English language, we note that our language of interest, German, is the second most prominent language in the genre. It is followed closely by French and Russian, both also known for war movies to a degree. 
+
+The usually dominant languages like Hindi and Tamil, for the general dataset, are not represent in the top ten here. This might be due to either a preference difference in India, or simply a shortcoming of the dataset. German itself is not dominant language in the dataset, hence its increased presence here is remarkable. 
+
+The matched t-test yields:
+
+| T-test value  | P-value         | 
+| :-------------: |:-------------:|
+| 3.453 |  0.0007 << 0.05|
+
+As such, we see that **the German language is significantly associated with the War genre**.
+
+### Romance: Does the Heart Speak French?
+
+[Insert Romance Film Count by Language Plot]
+
+No. 
+
+In fact it speaks something else.
+
+Aside from the usual English pre-eminence, we see Hindi as the second most present language in the genre. It is followed by French, Tamil (another Indian language), Spanish, Italian and German.
+
+This is to be expected given the Bollywood's reputation for soap operas. Yet, among French and Hindi, whose association with the genre is more significant?
+
+The matched data speaks for itself:
+
+**French**
+| T-test value  | P-value         | 
+| :-------------: |:-------------:|
+| 1.445 |  0.150 **>** 0.05|
+
+**Hindi**
+| T-test value  | P-value         | 
+| :-------------: |:-------------:|
+| 2.602 |  0.0126 << 0.05|
+
+Indeed, the Heart Speaks Hindi more than it does French, as **the association between the genre and the French language is not significant, whereas the one for Hindi is**.
+
+मुझे तुमसे प्यार है!
+
+### Gangster: Does Godfather Speak Italian?
+
+[Insert Gangster Film Count by Language Plot]
+
+He does, Signore.
+
+After English, Italian is the second most prevalent language in the genre. This can be explained by the prominence of the Sicilian-Italian mafia in the country's culture, but also the place of the mafia in the American (and therefore the global) cultural psyche. 
+
+Japanese is the third runner-up, probably due to Yakuza movies present in the dataset. Either way, we want to see if there is a significant connection between the language and the genre:
+
+| T-test value  | P-value         | 
+| :-------------: |:-------------:|
+| 2.046 |  0.043 < 0.05|
+
+As such, we can argue that **there is a significant level of association between the Italian language and the Gangster Genre**.
+
+### LGBT: What does Love Speak?
+
+[Insert LGBT Film Count by Language Plot]
+
+We do not have any stereotypes to test for the LGBT genre *a priori*. We see that, looking further than the usual English presence, that European languages like French, Spanish, German and Italian are mostly present in this genre. This might be due to the non or low penetreance of LGBT themes in the movie industries of non-Western socities, or due to a lack of societal acceptance in such socities. 
+
+Hypothesis testing for the significance of the 2nd most prevalent language (French):
+
+| T-test value  | P-value         | 
+| :-------------: |:-------------:|
+| -0.338 |   0.735 > 0.05|
+
+As we can see, there is no significant association between the LGBT theme and the French language. **We currently cannot generate a concrete stereotype for this genre**.
