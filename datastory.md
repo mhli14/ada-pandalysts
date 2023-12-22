@@ -344,3 +344,19 @@ Hypothesis testing for the significance of the 2nd most prevalent language (Fren
 | -0.338 |   0.735 > 0.05|
 
 As we can see, there is no significant association between the LGBT theme and the French language. **We currently cannot generate a concrete stereotype for this genre**.
+
+## Conclusion: What You Speak Might be What You Are
+
+More precisely, what you will make, what you think, how many people are there speaking the same language as you are, and what you are interested in. 
+
+To give a summary of our results:
+
+* Indeed, **having as many languages as possible in a movie increases the expected box office revenue** (even indepedently of the budget)! Just to be absolutely sure, maybe don't go further than 9 languages though.
+
+* **The presence of no known, spoken, extinct or invented language in a movie is significantly associated with an increase in box office revenue**. If you are on the superstitious side, consider adopting a "Thou Shalt" speech or a trip to Zagreb though.
+
+* **Cultural or demographic influences in a country's history can be inferred from analysing the trends of the secondary languages in its movies**. In the case of US and India, demographic or industrial trends dominate the movie language landscape, whereas in the UK, it is the cultural connections that are pre-eminent.
+
+* **Karate speaks Chinese, the Katana speaks Japanese, the Panzer Speaks German, the Heart speaks not French but Hindi, the Godfather speaks Italian and nobody knows what the tune our hearts play.** 
+
+There many more stories to seek out in languages in movies, but that is it from us for now. Hopefully you enjoyed this journey of language and data with us! Always remember: **ADA is the best, no matter the movie, the language or the genre!**
