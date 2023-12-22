@@ -5,11 +5,11 @@ subtitle: The Multi-Faceted Story of a Single Parameter
 cover-img: "banner.jpg"
 ---
 
-### Introduction: What You Speak Matters More than You Think
+## Introduction: What You Speak Matters More than You Think
 
 As of 2023, there are 7'193 spoken and written languages around the world, with only 193 UN recognised countries on the map. These languages fundementally define our ways of perceiving, thinking and communicating. Withing a language lies an entire world, and within different languages, worlds collide. Just by tracking a single language, we pull the string for a story of demographics, history, culture and if we are lucky, even bags of gold.
 
-The movie industry is far-reaching and near omnipresent. It helps transmit ideas and emotions all across the globe to different peoples and cultures, maybe even helping the creation of certain values shared by all around the globe. What better place to study the impact of languages? 
+The movie industry is far-reaching and virtually omnipresent. It helps transmit ideas and emotions all across the globe to different peoples and cultures, maybe even helping the creation of certain values shared by all around the globe. What better place to study the impact of languages? 
 
 Many different audiances have created strong connections with certain movies, either their local movies in their native languages, or international blockbusters released in one of the most spoken languages in the world. Many movies only have one language for a local audiance, while some reach eleven different ones (some even invented). The short yet detectable presence of a language in a movie might be a glimpse into a demographic reality of huge an acute importance. Some cultures are so affiliated with a concept or a genre that we can't think of these without them (is Paris *really* the City of Love?).
 
@@ -19,35 +19,102 @@ To answer these questions, let us take you a journey of languages in movies, in 
 
 ### The Data Itself
 
-The CMU Movie Corpus Dataset, a corpus of ~80'000 movies released between 1888 and 2016 with every detail pertaining to each movie, is our main dish. We seasoned this dish with a generous amount of Box Office Mojo Worldwide Yearly Box Office Dataset for additional box office revenue data and The Movies Dataset for an additional taste of movie budget. This body of data contains information about the length, the budget, the total revenue, the affiliated genres, the year of release and the list of languages of the movies present, many more pieces of information relating to them. 
+The CMU Movie Corpus Dataset, a corpus of ~80'000 movies released between 1888 and 2016 with every detail pertaining to each movie, is our main dish. We seasoned this dish with a generous amount of Box Office Mojo Worldwide Yearly Box Office Dataset for additional **box office revenue data** and The Movies Dataset for an additional taste of **movie budget**. This body of data contains information about the length, the budget, the total revenue, the affiliated genres, the year of release and the list of languages of the movies present, many more pieces of information relating to them. 
 
 [ Insert Relevant Distributions Describing the Dataset ]
 
 Using this data, we will answer 4 key questions:
 
-1. Is there a correlation between language variety in a movie and its box office revenue?
+1. Is there a correlation between **language variety** in a movie and its **box office revenue**? 
 
-2. The use of which languages are associated with a higher box office revenue?
+2. The use of **which languages** are associated with a **higher box office revenue**?
 
-3. Which languages a country's movies have other than their native one?
+3. **Which languages** a country's movies have **other than their native one**?
 
-4. Which languages are more present in a specific genre?
+4. **Which languages** are more present **in a specific genre**?
+
+We will do so with the following methods:
+
+1. We will be performing the traditional statistical tests such as T-tests, OLS Linear Regression and Pearson's Correlation.
+
+2. We will look for relevant covariates and perform the adequate matching to balance our dataset and therefore improve the quality of our observational study.
+
+3. We will look for demographics and cultural ties to explain certain prevelant language trends in a given country of production.
+
+4. We will consider and define known stereotypes to test for between genres and languages
 
 ### Dummy plot
 
 <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
         <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>                <div id="26de9ef9-658a-463e-b915-f57517a31a6f" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("26de9ef9-658a-463e-b915-f57517a31a6f")) {                    Plotly.newPlot(                        "26de9ef9-658a-463e-b915-f57517a31a6f",                        [{"alignmentgroup":"True","hovertemplate":"index=%{x}\u003cbr\u003ey=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","offsetgroup":"","orientation":"v","showlegend":false,"textposition":"auto","x":["Wikipedia movie ID","Freebase_movie_ID","Movie_name","Movie_release_date","Movie_box_office_revenue","Movie_runtime","Movie_languages","Movie_countries","Movie_genres","Movie_languages_clean","Movie_countries_clean","Movie_genres_clean","Movie_release_year","Movie_release_date_datetime","movie_title","movie_revenue","budget","id","release_date"],"xaxis":"x","y":[1.0,1.0,1.0,0.913885613598124,0.1242431870271989,0.7465189915342934,1.0,1.0,1.0,1.0,1.0,1.0,0.913885613598124,0.5173487367681934,0.07998039241663465,0.07998039241663465,0.11996396444138262,0.11996396444138262,0.11996396444138262],"yaxis":"y","type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Columns"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Percentage of Non-Missing Values"},"tickformat":".0%"},"legend":{"tracegroupgap":0},"title":{"text":"Percentage of Non-Missing Values in Each Column"},"barmode":"relative"},                        {"responsive": true}                    )                };                            </script>        </div>     
 
-### Is there a correlation between the language variety in a movie and its box office revenue?
+## 1. Is there a correlation between the language variety in a movie and its box office revenue?
 
-Q1 text
+Intuitively, a movie that has more languages in it would be expected to reach a wider audiance, simply due to accessibility or increased interest. But is this really the case?
 
-### The use of which languages are associated with higher box office revenues?
+To test this, we need to assess the number of languages each movie has and test it agains the revenue the movie generates. The CMU Database provides a list of languages present in a given movie, and its box office revenue (which we enriched with the Mojo dataset). 
+
+[insert language count distribution plot]
+
+Yes, silent films do count as movies with no language at all, hence the 0 column. 
+
+[insert revenue distribution plot]
+
+### The First Look of Naiveté
+
+We first go for a simple observation: What happens when we group the movies by the number of languages they have and gauge their revenue distribution? Can we see any linear trend? Is there a magic number of languages to opt for maximal revenue?
+
+[insert revenue VS language count plot]
+
+We do see a trend! The average revenue increases as the number of languages does so as well, with a dip at the 11 language mark (having that many languages in a movie is ambitious by itself though). 
+
+We validated this result by calculating the a Peorson's correlation coefficient for the two variables, and the associated p-value: 
+
+| Pearson's R   | P-value         | 
+| :-------------: |:-------------:|
+| 0.156 > 0| 9.257e-53 << 0.05|
+
+
+### Looking for the Hidden Operative: Enter the Budget
+
+The above result is naive, and maybe even too good to be true. Are there any other variables that would explain both an increasing language count AND an increasing box office revenue?
+
+Enter the budget. One could say that a movie with a large budget would have the resources to employ mutliple languages in it, while also having the capacity to generate a lot of revenue. Can we verify the budget as a potential covariate then?
+
+To do so we need to compare it with the language count and revenue variables
+
+[insert budget VS revenue plot]
+
+| Pearson's R   | P-value         | 
+| :-------------: |:-------------:|
+| 0.724 > 0| 1.907e-279 << 0.05|
+
+[insert budget VS language count plot]
+
+| Pearson's R   | P-value         | 
+| :-------------: |:-------------:|
+| 0.177 > 0| 1.344e-13 << 0.05|
+
+We see in both cases that the budget correlates positively with revenue and language count, and quite significantly. As such, we have determined it to be an possible covariate
+
+### A Wiser Analysis
+
+Having identified the **budget** as a covariate to balance the dataset for, we also decided to do the same for the **genre** as well, given it's not-so-uniform distribution accross the dataset.
+
+After the matching, we ran an OLS Linear Regression test, by separating the movies with more than one language as the treatment data and the rest as the control data. 
+
+| Linear Regression Coefficient | P-value | Standard Error | 
+| :-------------: |:-------------:|:-------------:|
+| 1.367e+07 > 0| 0.008 << 0.05|5.13e+06|
+
+We do get a large positive coefficient in the linear regression with a significant p-value, confirming that **a positive linear relationship between language count and box office revenue exists**. However, our Standard Error is relatively high, and therefore it would be pertinent for a future study to perform this test again with a more comprehensive dataset to further elucidate this relationship.
+
+## The use of which languages are associated with higher box office revenues?
 
 Q2 text
 
-### Which languages a country's movies have other the native one?
+## Which languages a country's movies have other the native one?
 
 Q3 text
 
-### Which languages are more present in a specific genre?
+## Which languages are more present in a specific genre?
